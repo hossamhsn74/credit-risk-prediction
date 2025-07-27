@@ -82,7 +82,7 @@ pytest
 ### 3. API Usage
 Endpoint
 POST /predict
-
+![alt text](image.png)
 Example Input
 
 ✅ Low Risk Example
