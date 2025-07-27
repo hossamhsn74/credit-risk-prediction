@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+httpx
+pandas
+numpy
+matplotlib
+seaborn
+missingno
+plotly
+wordcloud
+scikit-learn
+xgboost
+catboost
+lightgbm
+bayesian-optimization
