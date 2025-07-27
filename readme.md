@@ -85,27 +85,71 @@ POST /predict
 
 Example Input
 
+✅ Low Risk Example
 ```json
 {
-  "person_age": 30,
-  "person_income": 50000,
-  "person_home_ownership": "RENT",
-  "person_emp_length": 5,
-  "loan_intent": "PERSONAL",
+  "person_age": 45,
+  "person_income": 120000,
+  "person_home_ownership": "MORTGAGE",
+  "person_emp_length": 15,
+  "loan_intent": "DEBTCONSOLIDATION",
   "loan_grade": "A",
   "loan_amnt": 10000,
-  "loan_int_rate": 10.5,
-  "loan_percent_income": 0.2,
+  "loan_int_rate": 0.06,
+  "loan_percent_income": 0.08,
   "cb_person_default_on_file": "N",
-  "cb_person_cred_hist_length": 3
+  "cb_person_cred_hist_length": 30
 }
 ```
 
+✅ Moderate Risk Example
+```json
+{
+  "person_age": 31,
+  "person_income": 66000,
+  "person_home_ownership": "RENT",
+  "person_emp_length": 6,
+  "loan_intent": "PERSONAL",
+  "loan_grade": "C",
+  "loan_amnt": 15000,
+  "loan_int_rate": 0.15,
+  "loan_percent_income": 0.23,
+  "cb_person_default_on_file": "N",
+  "cb_person_cred_hist_length": 24
+}
+```
+
+✅ High Risk Example
+```json
+{
+  "person_age": 22,
+  "person_income": 28000,
+  "person_home_ownership": "RENT",
+  "person_emp_length": 0,
+  "loan_intent": "VENTURE",
+  "loan_grade": "G",
+  "loan_amnt": 20000,
+  "loan_int_rate": 0.29,
+  "loan_percent_income": 0.71,
+  "cb_person_default_on_file": "Y",
+  "cb_person_cred_hist_length": 6
+}
+
+```
 Example Output
 
 ```json
 {
-  "risk_score": "12.34%"
+    "risk_score": "99.05%",
+    "risk_level": "High",
+    "reasoning": [
+        "Low income",
+        "High loan-to-income ratio",
+        "Poor loan grade",
+        "Previous default history",
+        "Short credit history",
+        "High interest rate"
+    ]
 }
 ```
 The risk_score is the predicted probability (as a percent with two digits on both sides) that the applicant will default.
